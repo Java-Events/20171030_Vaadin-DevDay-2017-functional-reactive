@@ -53,8 +53,8 @@
   </licenses>
 
   <properties>
-    <maven.compiler.target>9</maven.compiler.target>
-    <maven.compiler.source>9</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <jacoco.version>0.7.9</jacoco.version>
@@ -70,8 +70,8 @@
 
     <vaadin.version>8.1.6</vaadin.version>
     <javax.servlet-api.version>4.0.0</javax.servlet-api.version>
-    <ddi.version>0.9.1</ddi.version>
-    <rpm.version>0.9.1</rpm.version>
+    <ddi.version>1.0.0-SNAPSHOT</ddi.version>
+    <rpm.version>1.0.0-SNAPSHOT</rpm.version>
   </properties>
 
 
@@ -123,8 +123,15 @@
 
       <dependency>
         <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-testbench-api</artifactId>
+        <version>${vaadin.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.vaadin</groupId>
         <artifactId>vaadin-testbench</artifactId>
-        <version>5.1.0.alpha1</version>
+        <version>5.1.0.beta1</version>
         <scope>test</scope>
       </dependency>
 
