@@ -5,6 +5,7 @@ import java.util.function.BiFunction;
 
 import org.rapidpm.frp.functions.TriFunction;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -39,6 +40,10 @@ public interface ComponentIDGenerator {
 
   static BiFunction<Class, String, String> passwordID() {
     return (uiClass, label) -> genericID().apply(uiClass, PasswordField.class, label);
+  }
+
+  static BiFunction<Class, String, String> comboboxID() {
+    return (uiClass, label) -> genericID().apply(uiClass, ComboBox.class, label);
   }
 
   static BiFunction<Class, String, String> cssLayoutID() {

@@ -67,19 +67,15 @@ public class NotificationComp extends Composite {
 
   @PostConstruct
   private void postConstruct() {
-    evaluate.addClickListener(e -> {
-      match(
-          matchCase(() -> failure("unexpected combination")) ,
-          matchCase(() -> cb01.getValue() && cb02.getValue() , () -> success(true)) ,
-          matchCase(() -> cb01.getValue() && cb03.getValue() , () -> failure("really bad idea")) ,
-          matchCase(() -> cb01.getValue() && cb04.getValue() , () -> success(true))
-      ).ifPresentOrElse(
-          success -> {
-            System.out.println("success = " + success);
-          } ,
-          Notification::show
-      );
-    });
+    evaluate.addClickListener(e -> match(
+        matchCase(() -> failure("unexpected combination")) ,
+        matchCase(() -> cb01.getValue() && cb02.getValue() , () -> success(true)) ,
+        matchCase(() -> cb01.getValue() && cb03.getValue() , () -> failure("really bad idea")) ,
+        matchCase(() -> cb01.getValue() && cb04.getValue() , () -> success(true))
+    ).ifPresentOrElse(
+        System.out::println ,
+        Notification::show
+    ));
   }
 
 }
